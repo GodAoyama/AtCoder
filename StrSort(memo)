@@ -1,0 +1,20 @@
+using System;
+using System.Linq;
+
+namespace AtCoder
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string rin = "rin";
+
+            char[] ca = rin.ToCharArray().OrderBy(s => s).ToArray();
+
+            Console.WriteLine(string.Join("nya", ca));
+            //他の案
+            //Console.WriteLine(new string(ca));//これはOK例
+            //Console.WriteLine(ca.ToString());//これはNG例
+        }
+    }
+}
