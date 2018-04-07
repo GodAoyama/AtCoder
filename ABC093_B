@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AtCoder
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var abk = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+            var list = new List<int>();
+            for (int i = 0; i < abk[2]; i++)
+            {
+                list.Add(abk[0] + i);
+            }
+            for (int i = 0; i < abk[2]; i++)
+            {
+               list.Add(abk[1] - abk[2] + i + 1);
+            }
+            list = list.Distinct().Where(s => s >= abk[0]).Where(s => s <= abk[1]).ToList();
+            foreach(int i in list)
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+}
