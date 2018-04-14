@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AtCoder
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var abc = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+            int count = 0;
+            Array.Sort(abc);
+            count = abc[2] - abc[1];
+            abc[0] += count;
+            abc[1] += count;
+            while (abc[0] < abc[1])
+            {
+                abc[0] += 2;
+                count++;
+            }
+            if (abc[0] > abc[1])
+            {
+                count++;
+            }
+            Console.WriteLine(count);
+        }
+    }
+}
