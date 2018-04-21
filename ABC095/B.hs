@@ -16,3 +16,6 @@ f n = do
     v <- read <$> getLine
     vs <- f (n-1)
     return (v:vs)
+    
+getLineN :: Int -> IO [String]
+getLineN n = replicateM n getLine
