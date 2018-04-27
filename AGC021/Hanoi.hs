@@ -11,7 +11,7 @@ hanoi :: Int -> [Hanoi] -> IO ()
 hanoi k [t1,t2,t3] = if k >= 1
     then do
         hanoi (k-1) [tail' t1,t3,head' t1.:t2]
-        putStrLn (show k ++ ": from " ++ show t1 ++ " to " ++ show t3) -- ++ format t1 t2 t3)
+        putStrLn (show k ++ ": from " ++ show t1 ++ " to " ++ show t3)
         hanoi (k-1) [t2,t1,t3]
     else
         return ()
