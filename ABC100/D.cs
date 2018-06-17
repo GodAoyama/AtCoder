@@ -17,15 +17,12 @@ class Program
                 long thisScore = 0;
                 for (int k = 0; k < 3; k++)
                 {
-                    if (((i >> k) & 1) == 1) thisScore += inp[j][k];
+                    if ((i >> k & 1) == 1) thisScore += inp[j][k];
                     else thisScore -= inp[j][k];
                 }
                 score.Add(thisScore);
             }
-            score = score.OrderByDescending(L => L).ToList();
-            long x = 0;
-            for (int j = 0; j < nm[1]; j++) x += score[j];
-            ans[i] = x;
+            ans[i] = score.OrderByDescending(L => L).Where((x, y) => y < nm[1]).Sum();
         }
         Console.WriteLine(ans.Max());
     }
